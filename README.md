@@ -10,3 +10,5 @@ This is a visualized experiment demo of Martingale betting strategy.
 
 You can see the live demo [here](https://codepen.io/HuCW/pen/MVzrpg) on codepen!
 
+![Demo Screenshot](./Demo Screenshot.png)
+
