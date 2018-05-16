@@ -1,10 +1,15 @@
 const endowment = 100;
-const minBet = 0.01;
+var minBet = 0.01;
 const numberOfPlayer = 99;
-const roundSpeed = 10;
+var roundSpeed = 10;
+var speed = 100;
 
 var container = document.querySelector(".container");
 var dashboard = document.querySelector(".dashboard");
+var start = document.querySelector(".start");
+var input_container = document.querySelector(".input-container");
+var betInput = document.querySelector(".bet-input")
+var speedInput = document.querySelector(".speed-input")
 
 
 
@@ -40,6 +45,13 @@ function playOneGame() {
 // }
 
 function showProcess() {
+  minBet = betInput.value ? parseInt(betInput.value) : 0.01;
+  console.log(minBet);
+
+  speed = speedInput.value ? parseInt(speedInput.value) : 100;
+  roundSpeed = 1000 / speed;
+
+  input_container.style.display = "none";
   renderInitial();
   var players = [];
   for (let i = 0; i < numberOfPlayer; i++) {
@@ -102,6 +114,6 @@ function renderInitial() {
 }
 
 
+start.addEventListener("click", showProcess);
 
-
-showProcess();
+// showProcess();
