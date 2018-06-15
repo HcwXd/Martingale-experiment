@@ -8,7 +8,7 @@ This is a visualized experiment demo of Martingale betting strategy.
 >
 > As the gambler's wealth and available time jointly approach infinity, his probability of eventually flipping heads approaches 1, which makes the martingale betting strategy seem like a sure thing. However, the exponential growth of the bets eventually bankrupts its users, assuming the obvious and realistic finite bankrolls.
 
-You can see the live demo [here](https://codepen.io/HuCW/pen/MVzrpg) on codepen!
+You can see the live demo [here](https://hcwxd.github.io/Martingale-experiment/index.html) on GitHub Page!
 
 ![Demo Screenshot](https://github.com/HcwXd/Martingale-experiment/blob/master/Demo%20Screenshot.png?raw=true)
 
