@@ -17,7 +17,7 @@ let roundSpeed = 10;
 let speed = 100;
 
 let container = document.querySelector('.container');
-let dashboard = document.querySelector('.dashboard');
+let dashboardData = document.querySelector('.data');
 let start = document.querySelector('.start');
 let input_container = document.querySelector('.input-container');
 let betInput = document.querySelector('.bet-input');
@@ -28,13 +28,19 @@ function playOneGame() {
 }
 
 function showProcess() {
-  minBet = betInput.value ? parseInt(betInput.value) : 0.01;
+  minBet = betInput.value ? parseInt(betInput.value) : 1;
   console.log(minBet);
 
-  speed = speedInput.value ? parseInt(speedInput.value) : 100;
+  speed = speedInput.value ? parseInt(speedInput.value) : 10;
   roundSpeed = 1000 / speed;
 
   input_container.style.display = 'none';
+  document.querySelector('.info').innerHTML = `
+  There total ${numberOfPlayer} players in the game with initial amount of money = $${endowment} and in the beginning, each player will bet $${minBet}.<br>
+  If a player win, he will get double the amount he bet and bet $${minBet} next time.<br>
+  If a player lose, he will lose the amount he bet and bet double next time.<br>
+  Green label indicates the initial height of $${endowment}. Red label indicates the player is broked.
+  `;
   renderInitial();
   let players = [];
   for (let i = 0; i < numberOfPlayer; i++) {
@@ -55,7 +61,9 @@ function showProcess() {
       container.removeChild(container.firstChild);
     }
     renderInitial();
+    let max;
     for (let i = 0; i < numberOfPlayer; i++) {
+      if (!max) max = players[i].money;
       if (players[i].money < 0) {
         let moneyBar = document.createElement('DIV');
         moneyBar.className = 'initial';
@@ -70,7 +78,7 @@ function showProcess() {
           players[i].money -= players[i].bet;
           players[i].bet = players[i].bet * 2;
         }
-
+        if (players[i].money > max) max = players[i].money;
         let moneyBar = document.createElement('DIV');
         moneyBar.className = 'money';
         moneyBar.style.height = players[i].money + 'px';
@@ -81,7 +89,7 @@ function showProcess() {
     let broked = players.filter(player => {
       return player.money < 0;
     });
-    dashboard.innerHTML = `Endowment: $${endowment} Bet: $${minBet} Player: ${numberOfPlayer} <br> Round: ${round} Broke: ${broked.length}`;
+    dashboardData.innerHTML = `Round: ${round}<br>Max: $${max}<br>Broke: ${broked.length}`;
   }, roundSpeed);
 }
 
