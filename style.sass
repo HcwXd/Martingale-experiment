@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap')
 *
   box-sizing: border-box
+  font-family: 'Quicksand', sans-serif
 body, html
   margin: 0px
   padding: 0px
@@ -13,9 +15,22 @@ body, html
   color: #fff
   border: 1px solid #e6e6e6
   padding: 15px
+  font-size: 18px
+  border-radius: 4px
   .input-row
-    margin-bottom: 5px
+    margin-bottom: 10px
+    display: flex
+    justify-content: space-between
+    align-items: center
+    width: 400px
   input
+    text-align: right
+    border: none
+    border-bottom: 1px solid white
+    background: transparent
+    caret-color: white
+    font-size: 18px
+    color: white
     &:focus
       outline: 0
       box-shadow: none
@@ -31,14 +46,10 @@ body, html
     font-size: 14px
     line-height: 20px
     text-align: center
-    border: 1px solid #000  
-    color: #333333
-    background-color: #fff
-    border-color: #cccccc
-    &:hover
-      background-color: #e6e6e6
-      border-color: #adadad
-
+    border: 1px solid white  
+    background-color: transparent
+    color: white
+    font-size: 18px
 .dashboard
   position: fixed
   top: 20%
